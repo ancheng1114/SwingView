@@ -1,0 +1,27 @@
+//
+//  SwingView.pch
+//  SwingView
+//
+//  Created by AnCheng on 4/20/16.
+//  Copyright © 2016 AnCheng. All rights reserved.
+//
+
+#ifndef SwingView_pch
+#define SwingView_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "Shape.h"
+#import "UIColor+HexString.h"
+#import "iCarousel.h"
+#import "PureLayout/PureLayout.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#endif
+
+#endif /* SwingView_pch */

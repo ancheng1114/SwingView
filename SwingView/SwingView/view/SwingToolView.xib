@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SwingToolView">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Dp-Ci-L0M">
+                    <rect key="frame" x="0.0" y="0.0" width="230" height="75"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26y-nP-Ckf">
+                    <rect key="frame" x="8" y="43" width="25" height="25"/>
+                    <color key="backgroundColor" red="0.83921568627450982" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onColorPanel:" destination="-1" eventType="touchUpInside" id="3cv-3h-PLf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrw-rX-wRN">
+                    <rect key="frame" x="52" y="42" width="25" height="25"/>
+                    <color key="backgroundColor" red="0.97647058823529409" green="0.89411764705882346" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onColorPanel:" destination="-1" eventType="touchUpInside" id="sPg-xu-a0P"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPo-hm-HNz">
+                    <rect key="frame" x="97" y="42" width="25" height="25"/>
+                    <color key="backgroundColor" red="0.30196078431372547" green="0.95686274509803915" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onColorPanel:" destination="-1" eventType="touchUpInside" id="DGw-8i-Kos"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slE-mw-xyT">
+                    <rect key="frame" x="144" y="42" width="25" height="25"/>
+                    <color key="backgroundColor" red="0.2196078431372549" green="0.74901960784313726" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onColorPanel:" destination="-1" eventType="touchUpInside" id="mp2-Gx-1pf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32g-X7-PZF">
+                    <rect key="frame" x="191" y="42" width="25" height="25"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="onColorPanel:" destination="-1" eventType="touchUpInside" id="SYk-uJ-a7O"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W45-kb-c0P">
+                    <rect key="frame" x="8" y="10" width="25" height="25"/>
+                    <state key="normal" image="rectangle-red.png"/>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="xPl-GZ-aU7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6A-ub-OhJ">
+                    <rect key="frame" x="52" y="9" width="25" height="25"/>
+                    <state key="normal" image="circle-red.png"/>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="KDJ-e3-Rzq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH1-NG-2Ur">
+                    <rect key="frame" x="97" y="9" width="25" height="25"/>
+                    <state key="normal" image="line-red.png"/>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="99A-LJ-DHh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BkM-Kz-mk7">
+                    <rect key="frame" x="142" y="8" width="25" height="25"/>
+                    <state key="normal" image="freehand-red.png"/>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="biG-7h-FCT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uo8-PE-RmT">
+                    <rect key="frame" x="191" y="8" width="25" height="25"/>
+                    <state key="normal" image="angle-red.png"/>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="9a6-2m-euc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="angleBtn" destination="Uo8-PE-RmT" id="Nj4-9J-QQw"/>
+                <outlet property="circleBtn" destination="y6A-ub-OhJ" id="yuG-Ff-C4Q"/>
+                <outlet property="freelineBtn" destination="BkM-Kz-mk7" id="dbo-iz-nZI"/>
+                <outlet property="lineBtn" destination="mH1-NG-2Ur" id="qbu-np-qpZ"/>
+                <outlet property="rectangleBtn" destination="W45-kb-c0P" id="zO3-tZ-XK6"/>
+            </connections>
+            <point key="canvasLocation" x="313.5" y="241.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="angle-red.png" width="120" height="120"/>
+        <image name="circle-red.png" width="120" height="120"/>
+        <image name="freehand-red.png" width="120" height="120"/>
+        <image name="line-red.png" width="120" height="120"/>
+        <image name="rectangle-red.png" width="120" height="120"/>
+    </resources>
+</document>

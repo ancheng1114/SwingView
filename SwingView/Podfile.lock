@@ -1,0 +1,68 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - iCarousel (1.8.2)
+  - IQKeyboardManager (4.0.1)
+  - MBProgressHUD (0.9.2)
+  - PBJVision (0.4.2)
+  - pop (1.0.9)
+  - PureLayout (3.0.1)
+  - ReactiveCocoa (2.1.8):
+    - ReactiveCocoa/Core (= 2.1.8)
+    - ReactiveCocoa/no-arc (= 2.1.8)
+  - ReactiveCocoa/Core (2.1.8):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.1.8)
+  - SVProgressHUD (2.0.3)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - iCarousel (from `https://github.com/nicklockwood/iCarousel.git`)
+  - IQKeyboardManager
+  - MBProgressHUD (~> 0.8)
+  - PBJVision
+  - pop
+  - PureLayout
+  - ReactiveCocoa (= 2.1.8)
+  - SVProgressHUD
+
+EXTERNAL SOURCES:
+  iCarousel:
+    :git: https://github.com/nicklockwood/iCarousel.git
+
+CHECKOUT OPTIONS:
+  iCarousel:
+    :commit: 7739680a08028d29250c540b91b896dac23a92cd
+    :git: https://github.com/nicklockwood/iCarousel.git
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
+  IQKeyboardManager: 0c11a0cb402a621f7aa1aff506f60ab6d2388969
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  PBJVision: fe43c9a58bb1c1277d16fd802fa836d25e034a45
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  ReactiveCocoa: f89f2e009a87951b50321bf9feb958823fcc617e
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+
+COCOAPODS: 0.39.0

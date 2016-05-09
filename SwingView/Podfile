@@ -1,0 +1,19 @@
+# Uncomment this line to define a global platform for your project
+
+platform :ios, '8.0'
+use_frameworks!
+inhibit_all_warnings!
+
+target "SwingView" do
+
+pod 'AFNetworking', '~> 2.0'
+pod 'MBProgressHUD', '~> 0.8'
+pod 'PBJVision'
+pod 'PureLayout'
+pod 'IQKeyboardManager'
+pod 'iCarousel', :git => 'https://github.com/nicklockwood/iCarousel.git'
+pod 'pop'
+pod 'ReactiveCocoa', '2.1.8'
+pod 'SVProgressHUD'
+
+end
