@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A34C661CECF8A30034C041 /* LeftMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A34C651CECF8A30034C041 /* LeftMenuView.m */; };
+		04A34C691CECF8B30034C041 /* RightMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A34C681CECF8B30034C041 /* RightMenuView.m */; };
 		04B32AF31CCAA29500C3C661 /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B32AF21CCAA29500C3C661 /* AVPlayerView.m */; };
 		04B32AF51CCAA8C600C3C661 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 04B32AF41CCAA8C600C3C661 /* test.mp4 */; };
 		04BF7EFF1CD71773003632CE /* pause_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BF7EFE1CD71773003632CE /* pause_icon.png */; };
@@ -16,14 +18,6 @@
 		04BF7F311CD88192003632CE /* LayerRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF7F2F1CD88192003632CE /* LayerRecorder.m */; };
 		04BF7F351CD882E0003632CE /* AVMixer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BF7F341CD882E0003632CE /* AVMixer.m */; };
 		04BF7F371CD88BE4003632CE /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BF7F361CD88BE4003632CE /* AssetsLibrary.framework */; };
-		04DC47271CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC471A1CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */; };
-		04DC47281CDA399F000716DF /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = 04DC471B1CDA399F000716DF /* IPAddress.c */; };
-		04DC47291CDA399F000716DF /* OTScreenshotHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC471E1CDA399F000716DF /* OTScreenshotHelper.m */; };
-		04DC472A1CDA399F000716DF /* SystemUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC47201CDA399F000716DF /* SystemUtilities.m */; };
-		04DC472B1CDA399F000716DF /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC47221CDA399F000716DF /* UIDevice+Resolutions.m */; };
-		04DC472C1CDA399F000716DF /* UIScreenCaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC47241CDA399F000716DF /* UIScreenCaptureView.m */; };
-		04DC472D1CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DC47261CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */; };
-		04DC472F1CDA5AD9000716DF /* country_codes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 04DC472E1CDA5AD9000716DF /* country_codes.txt */; };
 		04DC47311CDA5AF4000716DF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC47301CDA5AF4000716DF /* CoreVideo.framework */; };
 		04DC47331CDA5AFB000716DF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC47321CDA5AFB000716DF /* CoreMedia.framework */; };
 		04DC47351CDA5B0F000716DF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC47341CDA5B0F000716DF /* MediaPlayer.framework */; };
@@ -96,6 +90,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04A34C641CECF8A30034C041 /* LeftMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuView.h; path = view/LeftMenuView.h; sourceTree = "<group>"; };
+		04A34C651CECF8A30034C041 /* LeftMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuView.m; path = view/LeftMenuView.m; sourceTree = "<group>"; };
+		04A34C671CECF8B30034C041 /* RightMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuView.h; path = view/RightMenuView.h; sourceTree = "<group>"; };
+		04A34C681CECF8B30034C041 /* RightMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightMenuView.m; path = view/RightMenuView.m; sourceTree = "<group>"; };
 		04B32AF11CCAA29500C3C661 /* AVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerView.h; sourceTree = "<group>"; };
 		04B32AF21CCAA29500C3C661 /* AVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerView.m; sourceTree = "<group>"; };
 		04B32AF41CCAA8C600C3C661 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.mp4; path = image/test.mp4; sourceTree = "<group>"; };
@@ -110,21 +108,6 @@
 		04BF7F331CD882E0003632CE /* AVMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMixer.h; sourceTree = "<group>"; };
 		04BF7F341CD882E0003632CE /* AVMixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVMixer.m; sourceTree = "<group>"; };
 		04BF7F361CD88BE4003632CE /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		04DC47191CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComOpenThreadOTScreenshotHelperSwizzleHelper.h; sourceTree = "<group>"; };
-		04DC471A1CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComOpenThreadOTScreenshotHelperSwizzleHelper.m; sourceTree = "<group>"; };
-		04DC471B1CDA399F000716DF /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
-		04DC471C1CDA399F000716DF /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
-		04DC471D1CDA399F000716DF /* OTScreenshotHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTScreenshotHelper.h; sourceTree = "<group>"; };
-		04DC471E1CDA399F000716DF /* OTScreenshotHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTScreenshotHelper.m; sourceTree = "<group>"; };
-		04DC471F1CDA399F000716DF /* SystemUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemUtilities.h; sourceTree = "<group>"; };
-		04DC47201CDA399F000716DF /* SystemUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemUtilities.m; sourceTree = "<group>"; };
-		04DC47211CDA399F000716DF /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
-		04DC47221CDA399F000716DF /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
-		04DC47231CDA399F000716DF /* UIScreenCaptureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScreenCaptureView.h; sourceTree = "<group>"; };
-		04DC47241CDA399F000716DF /* UIScreenCaptureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScreenCaptureView.m; sourceTree = "<group>"; };
-		04DC47251CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h"; sourceTree = "<group>"; };
-		04DC47261CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m"; sourceTree = "<group>"; };
-		04DC472E1CDA5AD9000716DF /* country_codes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country_codes.txt; sourceTree = "<group>"; };
 		04DC47301CDA5AF4000716DF /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		04DC47321CDA5AFB000716DF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		04DC47341CDA5B0F000716DF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -268,33 +251,9 @@
 			path = control/mixer;
 			sourceTree = "<group>";
 		};
-		04DC47181CDA399F000716DF /* UIScreenCaptureView */ = {
-			isa = PBXGroup;
-			children = (
-				04DC472E1CDA5AD9000716DF /* country_codes.txt */,
-				04DC47191CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.h */,
-				04DC471A1CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m */,
-				04DC471B1CDA399F000716DF /* IPAddress.c */,
-				04DC471C1CDA399F000716DF /* IPAddress.h */,
-				04DC471D1CDA399F000716DF /* OTScreenshotHelper.h */,
-				04DC471E1CDA399F000716DF /* OTScreenshotHelper.m */,
-				04DC471F1CDA399F000716DF /* SystemUtilities.h */,
-				04DC47201CDA399F000716DF /* SystemUtilities.m */,
-				04DC47211CDA399F000716DF /* UIDevice+Resolutions.h */,
-				04DC47221CDA399F000716DF /* UIDevice+Resolutions.m */,
-				04DC47231CDA399F000716DF /* UIScreenCaptureView.h */,
-				04DC47241CDA399F000716DF /* UIScreenCaptureView.m */,
-				04DC47251CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.h */,
-				04DC47261CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m */,
-			);
-			name = UIScreenCaptureView;
-			path = control/UIScreenCaptureView;
-			sourceTree = "<group>";
-		};
 		04E5D7DA1CC6BA400005169A /* control */ = {
 			isa = PBXGroup;
 			children = (
-				04DC47181CDA399F000716DF /* UIScreenCaptureView */,
 				04BF7F321CD882E0003632CE /* mixer */,
 				04BF7F2B1CD88192003632CE /* recording */,
 				04B32AF01CCAA29500C3C661 /* AVPlayerView */,
@@ -355,6 +314,10 @@
 				04BF7F081CD828A1003632CE /* SwingToolView.xib */,
 				04ECA7331CD44EFD00CB830B /* CarouselView.h */,
 				04ECA7341CD44EFD00CB830B /* CarouselView.m */,
+				04A34C641CECF8A30034C041 /* LeftMenuView.h */,
+				04A34C651CECF8A30034C041 /* LeftMenuView.m */,
+				04A34C671CECF8B30034C041 /* RightMenuView.h */,
+				04A34C681CECF8B30034C041 /* RightMenuView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -571,7 +534,6 @@
 				04BF7F0A1CD828A1003632CE /* SwingToolView.xib in Resources */,
 				04F5A69E1CC4626C008C45DA /* rectangle-white.png in Resources */,
 				04F5A68E1CC4626C008C45DA /* circle-red.png in Resources */,
-				04DC472F1CDA5AD9000716DF /* country_codes.txt in Resources */,
 				04F5A6901CC4626C008C45DA /* circle-yellow.png in Resources */,
 				04F5A6981CC4626C008C45DA /* line-red.png in Resources */,
 				04F5A6A41CC4626C008C45DA /* triangle-yellow.png in Resources */,
@@ -661,9 +623,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DC472A1CDA399F000716DF /* SystemUtilities.m in Sources */,
+				04A34C661CECF8A30034C041 /* LeftMenuView.m in Sources */,
 				04E5D7F41CC6BA4C0005169A /* Line.m in Sources */,
 				04E5D7F51CC6BA4C0005169A /* Rectangle.m in Sources */,
+				04A34C691CECF8B30034C041 /* RightMenuView.m in Sources */,
 				04EA60B21CC7C084006AC689 /* UIColor+HexString.m in Sources */,
 				04BF7F351CD882E0003632CE /* AVMixer.m in Sources */,
 				04F5A6491CC40E16008C45DA /* ViewController.m in Sources */,
@@ -671,22 +634,16 @@
 				04BF7F301CD88192003632CE /* AudioRecorder.m in Sources */,
 				04E5D7F01CC6BA4C0005169A /* Circle.m in Sources */,
 				04F5A6461CC40E16008C45DA /* AppDelegate.m in Sources */,
-				04DC472C1CDA399F000716DF /* UIScreenCaptureView.m in Sources */,
-				04DC47281CDA399F000716DF /* IPAddress.c in Sources */,
 				04ECA7351CD44EFD00CB830B /* CarouselView.m in Sources */,
 				04E5D7F11CC6BA4C0005169A /* Dash.m in Sources */,
 				04F5A6431CC40E16008C45DA /* main.m in Sources */,
-				04DC472D1CDA399F000716DF /* UIView+ComOpenThreadOTScreenshotHelperStatusBarReference.m in Sources */,
 				04E5D7EF1CC6BA4C0005169A /* CGUtils.c in Sources */,
 				04E5D7EE1CC6BA4C0005169A /* Angle.m in Sources */,
 				04B32AF31CCAA29500C3C661 /* AVPlayerView.m in Sources */,
-				04DC47291CDA399F000716DF /* OTScreenshotHelper.m in Sources */,
 				04E5D7F31CC6BA4C0005169A /* FreeDraw.m in Sources */,
 				04E5D7F61CC6BA4C0005169A /* Shape.m in Sources */,
 				04E5D7F21CC6BA4C0005169A /* DrawBoardView.m in Sources */,
 				04BF7F311CD88192003632CE /* LayerRecorder.m in Sources */,
-				04DC47271CDA399F000716DF /* ComOpenThreadOTScreenshotHelperSwizzleHelper.m in Sources */,
-				04DC472B1CDA399F000716DF /* UIDevice+Resolutions.m in Sources */,
 				04F5A6A71CC47BC6008C45DA /* NavViewController.m in Sources */,
 				04BF7F091CD828A1003632CE /* SwingToolView.m in Sources */,
 			);

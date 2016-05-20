@@ -246,12 +246,16 @@
             _scrollView1.scrollEnabled = NO;
             _scrollView2.scrollEnabled = NO;
             _triangleImageView.hidden = NO;
+            _drawView1.userInteractionEnabled = YES;
+            _drawView2.userInteractionEnabled = YES;
         }
         else
         {
             _scrollView1.scrollEnabled = YES;
             _scrollView2.scrollEnabled = YES;
             _triangleImageView.hidden = YES;
+            _drawView1.userInteractionEnabled = NO;
+            _drawView2.userInteractionEnabled = NO;
         }
     }
 }
@@ -324,7 +328,6 @@
         [self.collapseBtn pop_addAnimation:sprintAnimation forKey:@"collapseAnimation"];
     }
     
-    
     POPSpringAnimation *layoutAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayoutConstraintConstant];
     layoutAnimation.springSpeed = 20.0f;
     layoutAnimation.springBounciness = 15.0f;
@@ -332,7 +335,6 @@
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (collapseToolbar)
     {
-        //_drawingHeight.constant = 0;
         layoutAnimation.toValue = @(0);
         _drawingView.hidden = YES;
         
@@ -344,13 +346,12 @@
     }
     else
     {
-        //_drawingHeight.constant = 210;
-        layoutAnimation.toValue = @(210);
+        layoutAnimation.toValue = @(190);
         _drawingView.hidden = NO;
         
         if (orientation == UIDeviceOrientationPortrait)
         {
-            _reunHeight.constant = 71;
+            _reunHeight.constant = 72;
             _reunView.hidden = NO;
         }
     }
@@ -461,14 +462,19 @@
     
     if (panelNum == 1)
     {
-        [restoreShapeArr addObject:@{@"panel" : @(1) ,@"shape" : [_drawView1 getLastShape]}];
-        [_drawView1 deleteLastShape];
+        if ([_drawView1 getLastShape] != nil)
+        {
+            [restoreShapeArr addObject:@{@"panel" : @(1) ,@"shape" : [_drawView1 getLastShape]}];
+            [_drawView1 deleteLastShape];
+        }
     }
     else
     {
-        [restoreShapeArr addObject:@{@"panel" : @(2) ,@"shape" : [_drawView2 getLastShape]}];
-        [_drawView2 deleteLastShape];
-
+        if ([_drawView2 getLastShape] != nil)
+        {
+            [restoreShapeArr addObject:@{@"panel" : @(2) ,@"shape" : [_drawView2 getLastShape]}];
+            [_drawView2 deleteLastShape];
+        }
     }
     
     [shapeOrderArr removeLastObject];
@@ -721,6 +727,8 @@
     
     swingView.hidden = YES;
     
+    [self setUpPanel];
+
     //do stuff
     if (orientation == UIDeviceOrientationPortrait)
     {
@@ -753,7 +761,6 @@
         
     }
     
-    [self setUpPanel];
     [_carouselView reloadView];
 
 }
@@ -1054,11 +1061,10 @@
         }
         
         _mode = PANEL_TWOMODE;
-     
         [self setUpPanel];
+        
         [self backtoCancel];
         [self onClear:nil];
-        
         [_carouselView setMode:_mode];
     }];
     
