@@ -8,16 +8,19 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SwingToolView">
-            <rect key="frame" x="0.0" y="0.0" width="230" height="75"/>
+            <rect key="frame" x="0.0" y="0.0" width="270" height="75"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Dp-Ci-L0M">
-                    <rect key="frame" x="0.0" y="0.0" width="230" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="270" height="75"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26y-nP-Ckf">
                     <rect key="frame" x="8" y="43" width="25" height="25"/>
                     <color key="backgroundColor" red="0.83921568627450982" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.83921568627450982" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="onColorPanel:" destination="-1" eventType="touchUpInside" id="3cv-3h-PLf"/>
                     </connections>
@@ -85,17 +88,28 @@
                         <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="9a6-2m-euc"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb3-yw-ego">
+                    <rect key="frame" x="231" y="8" width="25" height="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="BL">
+                        <color key="titleColor" red="0.83921568629999999" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="qaJ-kn-1TN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="angleBtn" destination="Uo8-PE-RmT" id="Nj4-9J-QQw"/>
+                <outlet property="blastBtn" destination="xb3-yw-ego" id="QSW-ss-22M"/>
                 <outlet property="circleBtn" destination="y6A-ub-OhJ" id="yuG-Ff-C4Q"/>
                 <outlet property="freelineBtn" destination="BkM-Kz-mk7" id="dbo-iz-nZI"/>
                 <outlet property="lineBtn" destination="mH1-NG-2Ur" id="qbu-np-qpZ"/>
                 <outlet property="rectangleBtn" destination="W45-kb-c0P" id="zO3-tZ-XK6"/>
             </connections>
-            <point key="canvasLocation" x="313.5" y="241.5"/>
+            <point key="canvasLocation" x="333" y="241.5"/>
         </view>
     </objects>
     <resources>

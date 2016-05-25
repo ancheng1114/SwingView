@@ -17,7 +17,7 @@
 @property (nonatomic ,assign) IBOutlet UIButton *arrowBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *freelineBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *angleBtn;
-
+@property (nonatomic ,assign) IBOutlet UIButton *blastBtn;
 
 - (void)setColorPanel:(DRAWING_COLOR)color;
 

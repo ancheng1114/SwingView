@@ -16,7 +16,7 @@
 #import "CarouselView.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-#define SWINGVIEW_WIDTH     230
+#define SWINGVIEW_WIDTH     270
 #define SWINGVIEW_HEIGHT    75
 
 @interface ViewController () <DrawBoardViewDeleate ,iCarouselDataSource ,iCarouselDelegate ,UIScrollViewDelegate ,UIImagePickerControllerDelegate ,UINavigationControllerDelegate>{
@@ -383,6 +383,11 @@
         case 6:
             selectTool = DRAWING_TOOL_ANGLE;
             break;
+        case 7:
+        {
+            selectTool = DRAWING_TOOL_BLAST;
+
+        }
         default:
             break;
     }
@@ -762,7 +767,9 @@
     }
     
     [_carouselView reloadView];
-
+    [_drawView1 setNeedsDisplay];
+    [_drawView2 setNeedsDisplay];
+    
 }
 
 - (void)redrawSwingTool
@@ -818,7 +825,33 @@
                 break;
         }
         
-        [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        if (tool == DRAWING_TOOL_BLAST)
+        {
+            [button setImage:nil forState:UIControlStateNormal];
+            [button setTitle:@"BL" forState:UIControlStateNormal];
+            
+            switch (color) {
+                case DRAWING_COLOR_RED:
+                    [button setTitleColor:[UIColor colorWithHexString:@"#D60000"] forState:UIControlStateNormal];
+                    break;
+                case DRAWING_COLOR_WHITE:
+                    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                    break;
+                case DRAWING_COLOR_YELLOW:
+                    [button setTitleColor:[UIColor colorWithHexString:@"#F9E401"] forState:UIControlStateNormal];
+                    break;
+                case DRAWING_COLOR_GREEN:
+                    [button setTitleColor:[UIColor colorWithHexString:@"#4DF410"] forState:UIControlStateNormal];
+                    break;
+                case DRAWING_COLOR_BLUE:
+                    [button setTitleColor:[UIColor colorWithHexString:@"#38BFFF"] forState:UIControlStateNormal];
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+            [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     }
 }
 

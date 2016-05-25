@@ -14,6 +14,7 @@
 #import "FreeDraw.h"
 #import "Dash.h"
 #import "Rectangle.h"
+#import "Blast.h"
 
 #define kLineWidth          2.0f
 
@@ -389,6 +390,119 @@
     CGContextStrokePath(context);
 }
 
+- (void)drawBlast:(CGContextRef)context withBlast:(Blast *)aBlast
+{
+    // draw function
+    
+    CGContextSetStrokeColorWithColor(context, aBlast.shapeColor.CGColor);
+
+    float radiusY = fabs(aBlast.centerPt.y - aBlast.radius);
+    float radiusX = fabs(aBlast.centerPt.x - aBlast.radius);
+    
+    radiusY = [self changeAbsolute:aBlast.radius];
+    radiusX = [self changeAbsolute:aBlast.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aBlast.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aBlast.centerPt.y];
+    
+    UIColor *xaxisColor = [UIColor colorWithHexString:@"#942c92"];
+    CGContextSetStrokeColorWithColor(context, xaxisColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX, centerPtY);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 4 / 5, centerPtY);
+    CGContextStrokePath(context);
+    
+    UIColor *yaxisColor = [UIColor colorWithHexString:@"#fe8dfd"];
+    CGContextSetStrokeColorWithColor(context, yaxisColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX, centerPtY - radiusY * 6 / 5);
+    CGContextAddLineToPoint(context, centerPtX, centerPtY + radiusY * 6 / 5);
+    CGContextStrokePath(context);
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextSetLineWidth(context, 2.5f);
+    // black box width , height calculate
+    float  bwidth = radiusX * 2.2 / 5 ; float bheight = radiusX * 5.1 / 5;
+    CGContextMoveToPoint(context, centerPtX - bwidth, centerPtY + bheight);
+    CGContextAddLineToPoint(context, centerPtX - bwidth, centerPtY - bheight);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX + bwidth, centerPtY + bheight);
+    CGContextAddLineToPoint(context, centerPtX + bwidth, centerPtY - bheight);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX - bwidth, centerPtY + bheight);
+    CGContextAddLineToPoint(context, centerPtX + bwidth, centerPtY + bheight);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX - bwidth, centerPtY - bheight);
+    CGContextAddLineToPoint(context, centerPtX + bwidth, centerPtY - bheight);
+    CGContextStrokePath(context);
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+    CGContextSetLineWidth(context, 3.0f);
+    // black box width , height calculate
+    float  rwidth = radiusX * 1.8 / 5 ; float rheight = radiusX * 5.05 / 5;
+    CGContextMoveToPoint(context, centerPtX - rwidth, centerPtY + rheight);
+    CGContextAddLineToPoint(context, centerPtX - rwidth, centerPtY - rheight);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX + rwidth, centerPtY + rheight);
+    CGContextAddLineToPoint(context, centerPtX + rwidth, centerPtY - rheight);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX - rwidth, centerPtY + rheight);
+    CGContextAddLineToPoint(context, centerPtX + rwidth, centerPtY + rheight);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX - rwidth, centerPtY - rheight);
+    CGContextAddLineToPoint(context, centerPtX + rwidth, centerPtY - rheight);
+    CGContextStrokePath(context);
+    
+    //
+    CGContextSetLineWidth(context, 2.0f);
+    float  rwidth1 = radiusX * 1.8 / 5 ; float rheight1 = radiusX * 1.3 / 5;
+    CGContextMoveToPoint(context, centerPtX - rwidth1, centerPtY + rheight1);
+    CGContextAddLineToPoint(context, centerPtX + rwidth1, centerPtY + rheight1);
+    CGContextStrokePath(context);
+    CGContextMoveToPoint(context, centerPtX - rwidth1, centerPtY - rheight1);
+    CGContextAddLineToPoint(context, centerPtX + rwidth1, centerPtY - rheight1);
+    CGContextStrokePath(context);
+    
+    // green color polygon
+    CGContextSetStrokeColorWithColor(context, [UIColor greenColor].CGColor);
+    CGContextSetLineWidth(context, 2.4f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 0.5 / 5, centerPtY - radiusY * 5 / 5);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 1.8 / 5, centerPtY - radiusY * 5 / 5);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 1.8 / 5, centerPtY + radiusY * 5.05 / 5);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 2.8 / 5, centerPtY + radiusY * 5.05 / 5);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 2.8 / 5, centerPtY - radiusY * 0.7 / 5);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 0.5 / 5, centerPtY - radiusY * 5 / 5);
+    CGContextStrokePath(context);
+
+    //
+    CGContextSetLineWidth(context, 1.5f);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 2.8 / 5, centerPtY + radiusY * 4.2 / 5);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 2.8 / 5, centerPtY + radiusY * 4.2 / 5);
+    CGContextStrokePath(context);
+
+    CGContextMoveToPoint(context, centerPtX - radiusX * 1.8 / 5, centerPtY + radiusY * 5.4 / 5);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 1.8 / 5, centerPtY + radiusY * 5.4 / 5);
+    CGContextStrokePath(context);
+
+}
+
+- (void)drawBlastCtrl:(CGContextRef)context withBlast:(Blast *)aBlast
+{
+    if (aBlast.isCandi)
+    {
+        CGContextSetStrokeColorWithColor(context, aBlast.shapeColor.CGColor);
+
+        CGFloat centerPtX = [self changeAbsolute:aBlast.centerPt.x];
+        CGFloat centerPtY = [self changeAbsolute:aBlast.centerPt.y];
+        CGFloat radius = [self changeAbsolute:aBlast.radius];
+        
+        CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+        CGContextDrawPath(context, kCGPathFillStroke);
+        
+        CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+        CGContextDrawPath(context, kCGPathFillStroke);
+    }
+}
+
 - (void)drawShape:(CGContextRef)context withShape:(Shape *)aShape
 {
     if (!aShape)
@@ -412,6 +526,9 @@
             break;
         case DRAWING_TOOL_RECTANGLE:
             [self drawRectangle:context withRectangle:(Rectangle *)aShape];
+            break;
+        case DRAWING_TOOL_BLAST:
+            [self drawBlast:context withBlast:(Blast *)aShape];
         default:
             break;
     }
@@ -440,6 +557,9 @@
             break;
         case DRAWING_TOOL_RECTANGLE:
             [self drawRectangleCtrl:context withRectangle:(Rectangle *)aShape];
+            break;
+        case DRAWING_TOOL_BLAST:
+            [self drawBlastCtrl:context withBlast:(Blast *)aShape];
         default:
             break;
     }
@@ -665,7 +785,22 @@
                 }
             }
                 break;
+            case DRAWING_TOOL_BLAST:
+            {
+                Blast *aBlast = (Blast *)mCandShape;
                 
+                CGPoint centerPt = [self absoluteCoordinate:aBlast.centerPt];
+                CGPoint bottomPt = [self absoluteCoordinate:CGPointMake(aBlast.centerPt.x, aBlast.centerPt.y + aBlast.radius)];
+                
+                if (isEqualPoint(bottomPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                {
+                    mEditMode = EDIT_MODE_END_PT;
+                } else if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
+                    mEditMode = EDIT_MODE_CENTER_PT;
+                }
+
+            }
+                break;
             default:
                 break;
         }
@@ -731,6 +866,17 @@
                 [(Rectangle *)mTempShape setStartPt:startPt];
                 [(Rectangle *)mTempShape setEndPt:endPt];
             }
+                break;
+
+            case DRAWING_TOOL_BLAST:
+            {
+                mTempShape = [[Blast alloc] init];
+                CGPoint centerPt = [self relativeCoordinate:mFirstPt];
+                [(Blast *)mTempShape setCenterPt:centerPt];
+                //[(Blast *)mTempShape setRadius:[self changeRelative:100]];
+
+            }
+                break;
                 
             default:
                 break;
@@ -797,6 +943,15 @@
                     [(Rectangle *)mTempShape setStartPt:startPt];
                     [(Rectangle *)mTempShape setEndPt:endPt];
                     
+                }
+                    break;
+                case DRAWING_TOOL_BLAST:
+                {
+                    //CGFloat distance = distanceBetween2Points(mFirstPt, mLastPt);
+                    //[(Blast *)mTempShape setRadius:[self changeRelative:distance]];
+                    
+                    [(Blast *)mTempShape setRadius:[self changeRelative:100]];
+
                 }
                     break;
                 default:
@@ -893,6 +1048,21 @@
                 }
             }
                 break;
+            
+            case DRAWING_TOOL_BLAST:
+            {
+                Blast *aBlast = (Blast *)mCandShape;
+                if (mEditMode == EDIT_MODE_CENTER_PT)
+                {
+                    [aBlast setCenterPt:[self relativeCoordinate:mLastPt]];
+                    
+                } else {
+                    CGFloat distance = distanceBetween2Points(aBlast.centerPt, [self relativeCoordinate:mLastPt]);
+                    [aBlast setRadius:distance];
+                    
+                }
+            }
+                break;
             default:
                 break;
         }
@@ -971,6 +1141,15 @@
                         [(Rectangle *)mTempShape setCenterPt:[self relativeCoordinate:mLastPt]];
 
                     }
+                        break;
+                    case DRAWING_TOOL_BLAST:
+                    {
+                        //CGFloat distance = distanceBetween2Points(mFirstPt, mLastPt);
+                        //[(Blast *)mTempShape setRadius:[self changeRelative:distance]];
+                        [(Blast *)mTempShape setCenterPt:[self relativeCoordinate:mLastPt]];
+                        
+                    }
+                        break;
                     default:
                         break;
                 }

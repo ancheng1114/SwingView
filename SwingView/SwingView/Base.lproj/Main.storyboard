@@ -291,6 +291,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="9Wk-bL-bPM" secondAttribute="height" id="ATr-1j-w0j"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="rectangle-red.png"/>
                                                 <connections>
@@ -302,6 +303,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="z7h-rB-onH" secondAttribute="height" id="YqE-aP-IpT"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="circle-red.png"/>
                                                 <connections>
@@ -314,6 +316,7 @@
                                                     <constraint firstAttribute="width" secondItem="XjB-qg-ysm" secondAttribute="height" id="UWg-fh-y1p"/>
                                                     <constraint firstAttribute="width" constant="29" id="uMD-vc-Wz9"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="line-red.png"/>
                                                 <variation key="default">
@@ -331,6 +334,7 @@
                                                     <constraint firstAttribute="width" constant="29" id="EOT-iB-sYS"/>
                                                     <constraint firstAttribute="width" secondItem="lVM-dR-WAW" secondAttribute="height" id="iHq-bh-XOp"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="arrow-red.png"/>
                                                 <variation key="default">
@@ -348,6 +352,7 @@
                                                     <constraint firstAttribute="width" secondItem="hfm-1e-Y6o" secondAttribute="height" id="0bV-4h-z1W"/>
                                                     <constraint firstAttribute="width" constant="29" id="UAG-p0-qty"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="freehand-red.png"/>
                                                 <variation key="default">
