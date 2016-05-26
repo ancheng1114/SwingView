@@ -281,6 +281,12 @@
     CGRect buttonRect = [self.view convertRect:_triangleImageView.frame fromView:_triangleImageView.superview];
     _swingViewTop.constant = buttonRect.origin.y - SWINGVIEW_HEIGHT / 2;
     
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    if (button.tag == 1 && orientation != UIDeviceOrientationPortrait && fminf(size.width, size.height) <= 320){
+        _swingViewTop.constant = buttonRect.origin.y - 20;
+    }
+    
     POPSpringAnimation *layoutAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayoutConstraintConstant];
     layoutAnimation.springSpeed = 20.0f;
     layoutAnimation.springBounciness = 15.0f;
@@ -351,7 +357,7 @@
         
         if (orientation == UIDeviceOrientationPortrait)
         {
-            _reunHeight.constant = 72;
+            _reunHeight.constant = 71;
             _reunView.hidden = NO;
         }
     }
