@@ -145,7 +145,7 @@
     _leftCommandView.hidden = YES;
     
     _colors = [[NSMutableArray alloc] initWithObjects:@(DRAWING_COLOR_RED), @(DRAWING_COLOR_RED) , @(DRAWING_COLOR_RED) , @(DRAWING_COLOR_RED) , @(DRAWING_COLOR_RED), nil];
-    _shapes = [[NSMutableArray alloc] initWithObjects:@(DRAWING_TOOL_RECTANGLE), @(DRAWING_TOOL_CIRCLE) , @(DRAWING_TOOL_LINE) , @(DRAWING_TOOL_FREEDRAW) , @(DRAWING_TOOL_ANGLE), nil];
+    _shapes = [[NSMutableArray alloc] initWithObjects:@(DRAWING_TOOL_LINE), @(DRAWING_TOOL_CIRCLE) , @(DRAWING_TOOL_RECTANGLE) , @(DRAWING_TOOL_FREEDRAW) , @(DRAWING_TOOL_ANGLE), nil];
     
     [self redrawSwingTool];
     
@@ -160,8 +160,8 @@
     _drawView1.delegate = self;
     _drawView2.delegate = self;
     
-    [_drawView1 setShapeType:DRAWING_TOOL_RECTANGLE];
-    [_drawView2 setShapeType:DRAWING_TOOL_RECTANGLE];
+    [_drawView1 setShapeType:DRAWING_TOOL_LINE];
+    [_drawView2 setShapeType:DRAWING_TOOL_LINE];
     [_drawView1 setShapeColor:DRAWING_COLOR_RED];
     [_drawView2 setShapeColor:DRAWING_COLOR_RED];
     
@@ -357,7 +357,7 @@
         
         if (orientation == UIDeviceOrientationPortrait)
         {
-            _reunHeight.constant = 71;
+            _reunHeight.constant = 72;
             _reunView.hidden = NO;
         }
     }
