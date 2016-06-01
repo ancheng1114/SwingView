@@ -98,11 +98,22 @@
                         <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="qaJ-kn-1TN"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHJ-aB-PcY">
+                    <rect key="frame" x="231" y="42" width="25" height="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="AL">
+                        <color key="titleColor" red="0.83921568629999999" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onSwingPanel:" destination="-1" eventType="touchUpInside" id="v2c-yc-Zxn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="angleBtn" destination="Uo8-PE-RmT" id="Nj4-9J-QQw"/>
+                <outlet property="autolineBtn" destination="xHJ-aB-PcY" id="kdM-EL-OjH"/>
                 <outlet property="blastBtn" destination="xb3-yw-ego" id="QSW-ss-22M"/>
                 <outlet property="circleBtn" destination="y6A-ub-OhJ" id="yuG-Ff-C4Q"/>
                 <outlet property="freelineBtn" destination="BkM-Kz-mk7" id="dbo-iz-nZI"/>

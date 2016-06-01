@@ -14,10 +14,10 @@
 @property (nonatomic ,assign) IBOutlet UIButton *rectangleBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *circleBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *lineBtn;
-@property (nonatomic ,assign) IBOutlet UIButton *arrowBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *freelineBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *angleBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *blastBtn;
+@property (nonatomic ,assign) IBOutlet UIButton *autolineBtn;
 
 - (void)setColorPanel:(DRAWING_COLOR)color;
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0400CB881CF42C2E001E6C32 /* Blast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400CB871CF42C2E001E6C32 /* Blast.m */; };
+		043350191CFD6E9F003A9373 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043350181CFD6E9F003A9373 /* CoreMotion.framework */; };
+		0433501E1CFDF981003A9373 /* AutoLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433501D1CFDF981003A9373 /* AutoLine.m */; };
 		04A34C661CECF8A30034C041 /* LeftMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A34C651CECF8A30034C041 /* LeftMenuView.m */; };
 		04A34C691CECF8B30034C041 /* RightMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A34C681CECF8B30034C041 /* RightMenuView.m */; };
 		04B32AF31CCAA29500C3C661 /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B32AF21CCAA29500C3C661 /* AVPlayerView.m */; };
@@ -95,6 +97,9 @@
 /* Begin PBXFileReference section */
 		0400CB861CF42C2E001E6C32 /* Blast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blast.h; sourceTree = "<group>"; };
 		0400CB871CF42C2E001E6C32 /* Blast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blast.m; sourceTree = "<group>"; };
+		043350181CFD6E9F003A9373 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		0433501C1CFDF981003A9373 /* AutoLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLine.h; sourceTree = "<group>"; };
+		0433501D1CFDF981003A9373 /* AutoLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLine.m; sourceTree = "<group>"; };
 		04A34C641CECF8A30034C041 /* LeftMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuView.h; path = view/LeftMenuView.h; sourceTree = "<group>"; };
 		04A34C651CECF8A30034C041 /* LeftMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuView.m; path = view/LeftMenuView.m; sourceTree = "<group>"; };
 		04A34C671CECF8B30034C041 /* RightMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuView.h; path = view/RightMenuView.h; sourceTree = "<group>"; };
@@ -210,6 +215,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043350191CFD6E9F003A9373 /* CoreMotion.framework in Frameworks */,
 				04DC473D1CDA5B36000716DF /* ExternalAccessory.framework in Frameworks */,
 				04DC473B1CDA5B2E000716DF /* CoreFoundation.framework in Frameworks */,
 				04DC47391CDA5B1F000716DF /* CoreGraphics.framework in Frameworks */,
@@ -292,6 +298,8 @@
 				04E5D7ED1CC6BA4C0005169A /* Shape.m */,
 				0400CB861CF42C2E001E6C32 /* Blast.h */,
 				0400CB871CF42C2E001E6C32 /* Blast.m */,
+				0433501C1CFDF981003A9373 /* AutoLine.h */,
+				0433501D1CFDF981003A9373 /* AutoLine.m */,
 			);
 			name = drawing;
 			path = control/drawing;
@@ -320,9 +328,9 @@
 			children = (
 				04BF7F061CD828A1003632CE /* SwingToolView.h */,
 				04BF7F071CD828A1003632CE /* SwingToolView.m */,
+				04BF7F081CD828A1003632CE /* SwingToolView.xib */,
 				04ECA7331CD44EFD00CB830B /* CarouselView.h */,
 				04ECA7341CD44EFD00CB830B /* CarouselView.m */,
-				04BF7F081CD828A1003632CE /* SwingToolView.xib */,
 				04A34C641CECF8A30034C041 /* LeftMenuView.h */,
 				04A34C651CECF8A30034C041 /* LeftMenuView.m */,
 				04C5DE521CEF6FE5003342AC /* LeftMenuView.xib */,
@@ -455,6 +463,7 @@
 		FD9A593E82FF773670723DFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				043350181CFD6E9F003A9373 /* CoreMotion.framework */,
 				04DC473C1CDA5B36000716DF /* ExternalAccessory.framework */,
 				04DC473A1CDA5B2E000716DF /* CoreFoundation.framework */,
 				04DC47381CDA5B1F000716DF /* CoreGraphics.framework */,
@@ -641,6 +650,7 @@
 				04E5D7F41CC6BA4C0005169A /* Line.m in Sources */,
 				04E5D7F51CC6BA4C0005169A /* Rectangle.m in Sources */,
 				04A34C691CECF8B30034C041 /* RightMenuView.m in Sources */,
+				0433501E1CFDF981003A9373 /* AutoLine.m in Sources */,
 				04EA60B21CC7C084006AC689 /* UIColor+HexString.m in Sources */,
 				04BF7F351CD882E0003632CE /* AVMixer.m in Sources */,
 				04F5A6491CC40E16008C45DA /* ViewController.m in Sources */,

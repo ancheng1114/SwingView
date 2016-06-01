@@ -390,10 +390,11 @@
             selectTool = DRAWING_TOOL_ANGLE;
             break;
         case 7:
-        {
             selectTool = DRAWING_TOOL_BLAST;
-
-        }
+            break;
+        case 8:
+            selectTool = DRAWING_TOOL_AUTOLINE;
+            break;
         default:
             break;
     }
@@ -831,11 +832,14 @@
                 break;
         }
         
-        if (tool == DRAWING_TOOL_BLAST)
+        if (tool == DRAWING_TOOL_BLAST || tool == DRAWING_TOOL_AUTOLINE)
         {
             [button setImage:nil forState:UIControlStateNormal];
-            [button setTitle:@"BL" forState:UIControlStateNormal];
-            
+            if (tool == DRAWING_TOOL_BLAST)
+                [button setTitle:@"BL" forState:UIControlStateNormal];
+            else
+                [button setTitle:@"AL" forState:UIControlStateNormal];
+
             switch (color) {
                 case DRAWING_COLOR_RED:
                     [button setTitleColor:[UIColor colorWithHexString:@"#D60000"] forState:UIControlStateNormal];
