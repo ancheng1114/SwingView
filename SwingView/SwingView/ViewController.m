@@ -17,17 +17,15 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #define SWINGVIEW_WIDTH     270
-#define SWINGVIEW_HEIGHT    75
+#define SWINGVIEW_HEIGHT    110
 
 @interface ViewController () <DrawBoardViewDeleate ,iCarouselDataSource ,iCarouselDelegate ,UIScrollViewDelegate ,UIImagePickerControllerDelegate ,UINavigationControllerDelegate>{
     
     SwingToolView *swingView;
-    
     NSInteger pastCarouselIndex1;
     NSInteger pastCarouselIndex2;
     
     NSTimer *playerTimer;
-
     BOOL collapseToolbar;
 }
 
@@ -390,12 +388,25 @@
             selectTool = DRAWING_TOOL_ANGLE;
             break;
         case 7:
-            selectTool = DRAWING_TOOL_BLAST;
+            selectTool = DRAWING_TOOL_BLANCEBOX;
             break;
         case 8:
-            selectTool = DRAWING_TOOL_AUTOLINE;
+            selectTool = DRAWING_TOOL_CENTERALIGNMENTLINE;
+            break;
+        case 9:
+            selectTool = DRAWING_TOOL_CENTERBALANCELINE;
+            break;
+        case 10:
+            selectTool = DRAWING_TOOL_CROSSHAIR;
+            break;
+        case 11:
+            selectTool = DRAWING_TOOL_SKELTON;
+            break;
+        case 12:
+            selectTool = DRAWING_TOOL_SPINEANGLE;
             break;
         default:
+            selectTool = DRAWING_TOOL_CIRCLE;
             break;
     }
     
@@ -832,36 +843,30 @@
                 break;
         }
         
-        if (tool == DRAWING_TOOL_BLAST || tool == DRAWING_TOOL_AUTOLINE)
-        {
-            [button setImage:nil forState:UIControlStateNormal];
-            if (tool == DRAWING_TOOL_BLAST)
-                [button setTitle:@"BL" forState:UIControlStateNormal];
-            else
-                [button setTitle:@"AL" forState:UIControlStateNormal];
-
-            switch (color) {
-                case DRAWING_COLOR_RED:
-                    [button setTitleColor:[UIColor colorWithHexString:@"#D60000"] forState:UIControlStateNormal];
-                    break;
-                case DRAWING_COLOR_WHITE:
-                    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                    break;
-                case DRAWING_COLOR_YELLOW:
-                    [button setTitleColor:[UIColor colorWithHexString:@"#F9E401"] forState:UIControlStateNormal];
-                    break;
-                case DRAWING_COLOR_GREEN:
-                    [button setTitleColor:[UIColor colorWithHexString:@"#4DF410"] forState:UIControlStateNormal];
-                    break;
-                case DRAWING_COLOR_BLUE:
-                    [button setTitleColor:[UIColor colorWithHexString:@"#38BFFF"] forState:UIControlStateNormal];
-                    break;
-                default:
-                    break;
-            }
+        switch (tool) {
+            case DRAWING_TOOL_BLANCEBOX:
+                [button setImage:[UIImage imageNamed:@"balancebox"] forState:UIControlStateNormal];
+                break;
+            case DRAWING_TOOL_CENTERALIGNMENTLINE:
+                [button setImage:[UIImage imageNamed:@"centeralignmentline"] forState:UIControlStateNormal];
+                break;
+            case DRAWING_TOOL_CENTERBALANCELINE:
+                [button setImage:[UIImage imageNamed:@"centerbalanceline"] forState:UIControlStateNormal];
+                break;
+            case DRAWING_TOOL_CROSSHAIR:
+                [button setImage:[UIImage imageNamed:@"crosshair"] forState:UIControlStateNormal];
+                break;
+            case DRAWING_TOOL_SKELTON:
+                [button setImage:[UIImage imageNamed:@"skeleton"] forState:UIControlStateNormal];
+                break;
+            case DRAWING_TOOL_SPINEANGLE:
+                [button setImage:[UIImage imageNamed:@"spineangle"] forState:UIControlStateNormal];
+                break;
+            default:
+                [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+                break;
         }
-        else
-            [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        
     }
 }
 

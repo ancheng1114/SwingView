@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0400CB881CF42C2E001E6C32 /* Blast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400CB871CF42C2E001E6C32 /* Blast.m */; };
+		042047721D0CED3500488C3B /* CustomShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 042047711D0CED3500488C3B /* CustomShape.m */; };
 		043350191CFD6E9F003A9373 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043350181CFD6E9F003A9373 /* CoreMotion.framework */; };
 		0433501E1CFDF981003A9373 /* AutoLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433501D1CFDF981003A9373 /* AutoLine.m */; };
+		0480972D1D0CAB0A00160394 /* balancebox.png in Resources */ = {isa = PBXBuildFile; fileRef = 048097261D0CAB0A00160394 /* balancebox.png */; };
+		0480972E1D0CAB0A00160394 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 048097271D0CAB0A00160394 /* camera.png */; };
+		0480972F1D0CAB0A00160394 /* centeralignmentline.png in Resources */ = {isa = PBXBuildFile; fileRef = 048097281D0CAB0A00160394 /* centeralignmentline.png */; };
+		048097301D0CAB0A00160394 /* centerbalanceline.png in Resources */ = {isa = PBXBuildFile; fileRef = 048097291D0CAB0A00160394 /* centerbalanceline.png */; };
+		048097311D0CAB0A00160394 /* crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480972A1D0CAB0A00160394 /* crosshair.png */; };
+		048097321D0CAB0A00160394 /* skeleton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480972B1D0CAB0A00160394 /* skeleton.png */; };
+		048097331D0CAB0A00160394 /* spineangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0480972C1D0CAB0A00160394 /* spineangle.png */; };
 		04A34C661CECF8A30034C041 /* LeftMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A34C651CECF8A30034C041 /* LeftMenuView.m */; };
 		04A34C691CECF8B30034C041 /* RightMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A34C681CECF8B30034C041 /* RightMenuView.m */; };
 		04B32AF31CCAA29500C3C661 /* AVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B32AF21CCAA29500C3C661 /* AVPlayerView.m */; };
@@ -97,9 +105,18 @@
 /* Begin PBXFileReference section */
 		0400CB861CF42C2E001E6C32 /* Blast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blast.h; sourceTree = "<group>"; };
 		0400CB871CF42C2E001E6C32 /* Blast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blast.m; sourceTree = "<group>"; };
+		042047701D0CED3500488C3B /* CustomShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShape.h; sourceTree = "<group>"; };
+		042047711D0CED3500488C3B /* CustomShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShape.m; sourceTree = "<group>"; };
 		043350181CFD6E9F003A9373 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0433501C1CFDF981003A9373 /* AutoLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLine.h; sourceTree = "<group>"; };
 		0433501D1CFDF981003A9373 /* AutoLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLine.m; sourceTree = "<group>"; };
+		048097261D0CAB0A00160394 /* balancebox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balancebox.png; sourceTree = "<group>"; };
+		048097271D0CAB0A00160394 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		048097281D0CAB0A00160394 /* centeralignmentline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = centeralignmentline.png; sourceTree = "<group>"; };
+		048097291D0CAB0A00160394 /* centerbalanceline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = centerbalanceline.png; sourceTree = "<group>"; };
+		0480972A1D0CAB0A00160394 /* crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crosshair.png; sourceTree = "<group>"; };
+		0480972B1D0CAB0A00160394 /* skeleton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skeleton.png; sourceTree = "<group>"; };
+		0480972C1D0CAB0A00160394 /* spineangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spineangle.png; sourceTree = "<group>"; };
 		04A34C641CECF8A30034C041 /* LeftMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuView.h; path = view/LeftMenuView.h; sourceTree = "<group>"; };
 		04A34C651CECF8A30034C041 /* LeftMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuView.m; path = view/LeftMenuView.m; sourceTree = "<group>"; };
 		04A34C671CECF8B30034C041 /* RightMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuView.h; path = view/RightMenuView.h; sourceTree = "<group>"; };
@@ -300,6 +317,8 @@
 				0400CB871CF42C2E001E6C32 /* Blast.m */,
 				0433501C1CFDF981003A9373 /* AutoLine.h */,
 				0433501D1CFDF981003A9373 /* AutoLine.m */,
+				042047701D0CED3500488C3B /* CustomShape.h */,
+				042047711D0CED3500488C3B /* CustomShape.m */,
 			);
 			name = drawing;
 			path = control/drawing;
@@ -411,6 +430,13 @@
 		04F5A65D1CC4626C008C45DA /* Icons 120 */ = {
 			isa = PBXGroup;
 			children = (
+				048097261D0CAB0A00160394 /* balancebox.png */,
+				048097271D0CAB0A00160394 /* camera.png */,
+				048097281D0CAB0A00160394 /* centeralignmentline.png */,
+				048097291D0CAB0A00160394 /* centerbalanceline.png */,
+				0480972A1D0CAB0A00160394 /* crosshair.png */,
+				0480972B1D0CAB0A00160394 /* skeleton.png */,
+				0480972C1D0CAB0A00160394 /* spineangle.png */,
 				04F5A65E1CC4626C008C45DA /* angle-blue.png */,
 				04F5A65F1CC4626C008C45DA /* angle-green.png */,
 				04F5A6601CC4626C008C45DA /* angle-red.png */,
@@ -539,15 +565,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F5A68C1CC4626C008C45DA /* circle-blue.png in Resources */,
+				0480972E1D0CAB0A00160394 /* camera.png in Resources */,
+				048097301D0CAB0A00160394 /* centerbalanceline.png in Resources */,
+				0480972F1D0CAB0A00160394 /* centeralignmentline.png in Resources */,
 				04F5A6A31CC4626C008C45DA /* triangle-white.png in Resources */,
 				04F5A69D1CC4626C008C45DA /* rectangle-red.png in Resources */,
 				04F5A6841CC4626C008C45DA /* angle-red.png in Resources */,
+				0480972D1D0CAB0A00160394 /* balancebox.png in Resources */,
 				04F5A6811CC4626C008C45DA /* telestrateBtnGlow_iPhone@2x.png in Resources */,
 				04F5A68D1CC4626C008C45DA /* circle-green.png in Resources */,
+				048097311D0CAB0A00160394 /* crosshair.png in Resources */,
 				04F5A6541CC40E16008C45DA /* LaunchScreen.storyboard in Resources */,
 				04F5A6971CC4626C008C45DA /* line-green.png in Resources */,
 				04F5A68B1CC4626C008C45DA /* arrow-yellow.png in Resources */,
 				04F5A6AF1CC48E75008C45DA /* arrow_down.png in Resources */,
+				048097331D0CAB0A00160394 /* spineangle.png in Resources */,
 				04F5A6B01CC48E75008C45DA /* arrow_up.png in Resources */,
 				04F5A6871CC4626C008C45DA /* arrow-blue.png in Resources */,
 				04C5DE531CEF6FE5003342AC /* LeftMenuView.xib in Resources */,
@@ -558,6 +590,7 @@
 				04F5A68E1CC4626C008C45DA /* circle-red.png in Resources */,
 				04F5A6901CC4626C008C45DA /* circle-yellow.png in Resources */,
 				04F5A6981CC4626C008C45DA /* line-red.png in Resources */,
+				048097321D0CAB0A00160394 /* skeleton.png in Resources */,
 				04F5A6A41CC4626C008C45DA /* triangle-yellow.png in Resources */,
 				04F5A6821CC4626C008C45DA /* angle-blue.png in Resources */,
 				04F5A6831CC4626C008C45DA /* angle-green.png in Resources */,
@@ -661,6 +694,7 @@
 				04ECA7351CD44EFD00CB830B /* CarouselView.m in Sources */,
 				04E5D7F11CC6BA4C0005169A /* Dash.m in Sources */,
 				04F5A6431CC40E16008C45DA /* main.m in Sources */,
+				042047721D0CED3500488C3B /* CustomShape.m in Sources */,
 				04E5D7EF1CC6BA4C0005169A /* CGUtils.c in Sources */,
 				04E5D7EE1CC6BA4C0005169A /* Angle.m in Sources */,
 				04B32AF31CCAA29500C3C661 /* AVPlayerView.m in Sources */,

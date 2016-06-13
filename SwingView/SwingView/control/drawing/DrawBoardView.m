@@ -14,7 +14,7 @@
 #import "FreeDraw.h"
 #import "Dash.h"
 #import "Rectangle.h"
-#import "Blast.h"
+#import "CustomShape.h"
 
 #define kLineWidth          2.0f
 
@@ -390,7 +390,7 @@
     CGContextStrokePath(context);
 }
 
-- (void)drawBlast:(CGContextRef)context withBlast:(Blast *)aBlast
+- (void)drawBlast:(CGContextRef)context withBlast:(CustomShape *)aBlast
 {
     // draw function
     
@@ -485,15 +485,15 @@
 
 }
 
-- (void)drawBlastCtrl:(CGContextRef)context withBlast:(Blast *)aBlast
+- (void)drawCustomShapeCtrl:(CGContextRef)context withCustomShape:(CustomShape *)aShape
 {
-    if (aBlast.isCandi)
+    if (aShape.isCandi)
     {
-        CGContextSetStrokeColorWithColor(context, aBlast.shapeColor.CGColor);
+        CGContextSetStrokeColorWithColor(context, aShape.shapeColor.CGColor);
 
-        CGFloat centerPtX = [self changeAbsolute:aBlast.centerPt.x];
-        CGFloat centerPtY = [self changeAbsolute:aBlast.centerPt.y];
-        CGFloat radius = [self changeAbsolute:aBlast.radius];
+        CGFloat centerPtX = [self changeAbsolute:aShape.centerPt.x];
+        CGFloat centerPtY = [self changeAbsolute:aShape.centerPt.y];
+        CGFloat radius = [self changeAbsolute:aShape.radius];
         
         CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
         CGContextDrawPath(context, kCGPathFillStroke);
@@ -501,6 +501,347 @@
         CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
         CGContextDrawPath(context, kCGPathFillStroke);
     }
+}
+
+- (void)drawAutoline:(CGContextRef)context withAutoLine:(CustomShape *)aAutoline
+{
+    // draw function
+    
+    CGContextSetStrokeColorWithColor(context, aAutoline.shapeColor.CGColor);
+    
+    float radiusY = fabs(aAutoline.centerPt.y - aAutoline.radius);
+    float radiusX = fabs(aAutoline.centerPt.x - aAutoline.radius);
+    
+    radiusY = [self changeAbsolute:aAutoline.radius];
+    radiusX = [self changeAbsolute:aAutoline.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aAutoline.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aAutoline.centerPt.y];
+    
+    UIColor *greenColor = [UIColor colorWithHexString:@"#00fa00"];
+    CGContextSetStrokeColorWithColor(context, greenColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 1.3 / 7.0f, centerPtY - radiusY * 5.9 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 1.3 / 7.0f, centerPtY + radiusY * 5.9 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 1.3 / 7.0f, centerPtY + radiusY * 5.9 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 1.3 / 7.0f, centerPtY - radiusY * 5.9 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 1.3 / 7.0f, centerPtY - radiusY * 5.9 / 7.0f);
+    CGContextStrokePath(context);
+    
+    CGContextMoveToPoint(context, centerPtX - radiusX * 3.8 / 7.0f, centerPtY + radiusY * 5.9 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 3.8 / 7.0f, centerPtY + radiusY * 5.9 / 7.0f);
+    CGContextStrokePath(context);
+
+    UIColor *pinkColor = [UIColor colorWithHexString:@"#d069bd"];
+    CGContextSetStrokeColorWithColor(context, pinkColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 0.4 / 7.0f, centerPtY + radiusY * 6.6 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 0.4 / 7.0f, centerPtY - radiusY * 6.6 / 7.0f);
+    CGContextStrokePath(context);
+    
+    UIColor *redColor = [UIColor colorWithHexString:@"#d94c2f"];
+    CGContextSetStrokeColorWithColor(context, redColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX + radiusX * 0.4 / 7.0f, centerPtY + radiusY * 6.6 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 0.4 / 7.0f, centerPtY - radiusY * 6.6 / 7.0f);
+    CGContextStrokePath(context);
+    
+    UIColor *yellowColor = [UIColor colorWithHexString:@"#e6e41d"];
+    CGContextSetStrokeColorWithColor(context, yellowColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 4.8 / 7.0f, centerPtY - radiusY * 5.6 / 7.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 4.2 / 7.0f, centerPtY + radiusY * 4.2 / 7.0f);
+    CGContextStrokePath(context);
+    
+    UIColor *whiteColor = [UIColor whiteColor];
+    CGContextSetStrokeColorWithColor(context, whiteColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 3 / 7.0f, centerPtY - radiusY);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 4.2 / 7.0f, centerPtY + radiusY * 4.2 / 7.0f);
+    CGContextStrokePath(context);
+}
+
+- (void)drawBalanceBox:(CGContextRef)context withBalanceBox:(CustomShape *)aBalancebox
+{
+    float radiusY = fabs(aBalancebox.centerPt.y - aBalancebox.radius);
+    float radiusX = fabs(aBalancebox.centerPt.x - aBalancebox.radius);
+    radiusY = [self changeAbsolute:aBalancebox.radius];
+    radiusX = [self changeAbsolute:aBalancebox.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aBalancebox.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aBalancebox.centerPt.y];
+    
+    UIColor *blackColor = [UIColor blackColor];
+    CGContextSetStrokeColorWithColor(context, blackColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY - radiusY * 500 / 500.0f);
+    CGContextStrokePath(context);
+    
+    UIColor *redColor = [UIColor colorWithHexString:@"#f22c0a"];
+    CGContextSetStrokeColorWithColor(context, redColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 165 / 500.0f, centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 165 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextMoveToPoint(context, centerPtX + radiusX * 165 / 500.0f, centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 165 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 165 / 500.0f, centerPtY - radiusY * 140 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 165 / 500.0f, centerPtY - radiusY * 140 / 500.0f);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 165 / 500.0f, centerPtY + radiusY * 140 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 165 / 500.0f, centerPtY + radiusY * 140 / 500.0f);
+    CGContextStrokePath(context);
+
+    UIColor *pinkColor = [UIColor colorWithHexString:@"#fe47ca"];
+    CGContextSetStrokeColorWithColor(context, pinkColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX , centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY * 500 / 500.0f);
+    CGContextStrokePath(context);
+
+    UIColor *greenColor = [UIColor colorWithHexString:@"#00f900"];
+    CGContextSetStrokeColorWithColor(context, greenColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+
+    CGContextMoveToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    
+    CGContextStrokePath(context);
+
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * 440 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * 440 / 500.0f);
+
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (440 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (440 - 10) / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (440 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (440 - 10) / 500.0f);
+    
+    CGContextStrokePath(context);
+
+}
+
+- (void)drawCenterAlignmentLine:(CGContextRef)context withCenterAlignmentLine:(CustomShape *)aCenterAlignmentLine
+{
+    float radiusY = fabs(aCenterAlignmentLine.centerPt.y - aCenterAlignmentLine.radius);
+    float radiusX = fabs(aCenterAlignmentLine.centerPt.x - aCenterAlignmentLine.radius);
+    radiusY = [self changeAbsolute:aCenterAlignmentLine.radius];
+    radiusX = [self changeAbsolute:aCenterAlignmentLine.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aCenterAlignmentLine.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aCenterAlignmentLine.centerPt.y];
+    
+    UIColor *pinkColor = [UIColor colorWithHexString:@"#fe47ca"];
+    CGContextSetStrokeColorWithColor(context, pinkColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX , centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY * 500 / 500.0f);
+    CGContextStrokePath(context);
+    
+    UIColor *greenColor = [UIColor colorWithHexString:@"#00f900"];
+    CGContextSetStrokeColorWithColor(context, greenColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * (210 - 100) / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 210 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    
+    CGContextStrokePath(context);
+
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextStrokePath(context);
+}
+
+- (void)drawCenterBalanceLine:(CGContextRef)context withCenterBalanceLine:(CustomShape *)aCenterBalanceLine
+{
+    float radiusY = fabs(aCenterBalanceLine.centerPt.y - aCenterBalanceLine.radius);
+    float radiusX = fabs(aCenterBalanceLine.centerPt.x - aCenterBalanceLine.radius);
+    radiusY = [self changeAbsolute:aCenterBalanceLine.radius];
+    radiusX = [self changeAbsolute:aCenterBalanceLine.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aCenterBalanceLine.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aCenterBalanceLine.centerPt.y];
+    
+    UIColor *pinkColor = [UIColor colorWithHexString:@"#7b1e61"];
+    CGContextSetStrokeColorWithColor(context, pinkColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX , centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY * 500 / 500.0f);
+    CGContextStrokePath(context);
+    
+    UIColor *greenColor = [UIColor colorWithHexString:@"#00f900"];
+    CGContextSetStrokeColorWithColor(context, greenColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 50 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (50 - 100) / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (50 - 100) / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 50 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 50 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX - radiusX * 150 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (150 - 100) / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * (150 - 100) / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 150 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 150 / 500.0f, centerPtY + radiusY * 400 / 500.0f);
+    
+    CGContextStrokePath(context);
+
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextStrokePath(context);
+}
+
+- (void)drawCenterCrosshair:(CGContextRef)context withCrossHair:(CustomShape *)aCrossHair
+{
+    float radiusY = fabs(aCrossHair.centerPt.y - aCrossHair.radius);
+    float radiusX = fabs(aCrossHair.centerPt.x - aCrossHair.radius);
+    radiusY = [self changeAbsolute:aCrossHair.radius];
+    radiusX = [self changeAbsolute:aCrossHair.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aCrossHair.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aCrossHair.centerPt.y];
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX, centerPtY);
+    CGContextAddLineToPoint(context, centerPtX + radiusX, centerPtY);
+    
+    CGContextMoveToPoint(context, centerPtX , centerPtY - radiusY);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY);
+    CGContextStrokePath(context);
+
+    CGContextAddArc(context, centerPtX, centerPtY, radiusX /  2, 0.0f, M_PI * 2.0f, 0);
+    CGContextDrawPath(context, kCGPathStroke);
+    CGContextStrokePath(context);
+
+}
+
+- (void)drawSkelton:(CGContextRef)context withSkelton:(CustomShape *)aSkelton
+{
+
+    float radiusY = fabs(aSkelton.centerPt.y - aSkelton.radius);
+    float radiusX = fabs(aSkelton.centerPt.x - aSkelton.radius);
+    radiusY = [self changeAbsolute:aSkelton.radius];
+    radiusX = [self changeAbsolute:aSkelton.radius];
+    CGFloat centerPtX = [self changeAbsolute:aSkelton.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aSkelton.centerPt.y];
+
+    UIColor *yellowColor = [UIColor colorWithHexString:@"#f6cd36"];
+    CGContextSetStrokeColorWithColor(context, yellowColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX + radiusX * 110 / 500.0f, centerPtY - radiusY * 440 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 190 / 500.0f, centerPtY - radiusY * 80 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY * 160 / 500.0f);
+
+    CGContextMoveToPoint(context, centerPtX , centerPtY - radiusY * 300 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY * 500 / 500.0f);
+    
+    CGContextStrokePath(context);
+
+    [self drawLens:context center:CGPointMake(centerPtX + radiusX * 110 / 500.0f, centerPtY - radiusY * 440 / 500.0f) radius:radiusX];
+    [self drawLens:context center:CGPointMake(centerPtX - radiusX * 190 / 500.0f, centerPtY - radiusY * 80 / 500.0f) radius:radiusX];
+    [self drawLens:context center:CGPointMake(centerPtX , centerPtY + radiusY * 160 / 500.0f) radius:radiusX];
+    [self drawLens:context center:CGPointMake(centerPtX , centerPtY - radiusY * 300 / 500.0f) radius:radiusX];
+    [self drawLens:context center:CGPointMake(centerPtX , centerPtY + radiusY * 460 / 500.0f) radius:radiusX];
+    [self drawLens:context center:CGPointMake(centerPtX , centerPtY - radiusY * 10 / 500.0f) radius:radiusX];
+    [self drawLens:context center:CGPointMake(centerPtX , centerPtY - radiusY * 140 / 500.0f) radius:radiusX];
+
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 270 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 270 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextStrokePath(context);
+}
+
+- (void)drawLens:(CGContextRef)context center:(CGPoint)centerPt radius:(CGFloat)radius
+{
+    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    
+    CGContextAddArc(context, centerPt.x, centerPt.y,  radius * 40.0f / 500.0f , 0.0f, M_PI * 2.0f, 0);
+    CGContextAddArc(context, centerPt.x, centerPt.y,  radius * 25.0f / 500.0f, 0.0f, M_PI * 2.0f, 0);
+    CGContextDrawPath(context, kCGPathStroke);
+    
+    CGContextMoveToPoint(context, centerPt.x , centerPt.y - radius * 50.0f / 500.0f);
+    CGContextAddLineToPoint(context, centerPt.x , centerPt.y + radius * 50.0f / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPt.x - radius * 50.0f / 500.0f , centerPt.y);
+    CGContextAddLineToPoint(context, centerPt.x + radius * 50.0f / 500.0f , centerPt.y);
+    CGContextStrokePath(context);
+
+    CGContextSetFillColorWithColor(context, [UIColor colorWithHexString:@"#f6cd36"].CGColor);
+    CGContextAddArc(context, centerPt.x, centerPt.y,  radius * 10.0f / 500.0f, 0.0f, M_PI * 2.0f, 0);
+    CGContextDrawPath(context, kCGPathFillStroke);
+
+    CGContextMoveToPoint(context, centerPt.x , centerPt.y - radius * 6.0f / 500.0f);
+    CGContextAddLineToPoint(context, centerPt.x , centerPt.y + radius * 6.0f / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPt.x - radius * 6.0f / 500.0f , centerPt.y);
+    CGContextAddLineToPoint(context, centerPt.x + radius * 6.0f / 500.0f , centerPt.y);
+    
+    CGContextStrokePath(context);
+}
+
+- (void)drawSpineAngle:(CGContextRef)context withSpineAngle:(CustomShape *)aSpingAngle
+{
+    float radiusY = fabs(aSpingAngle.centerPt.y - aSpingAngle.radius);
+    float radiusX = fabs(aSpingAngle.centerPt.x - aSpingAngle.radius);
+    radiusY = [self changeAbsolute:aSpingAngle.radius];
+    radiusX = [self changeAbsolute:aSpingAngle.radius];
+    
+    CGFloat centerPtX = [self changeAbsolute:aSpingAngle.centerPt.x];
+    CGFloat centerPtY = [self changeAbsolute:aSpingAngle.centerPt.y];
+    
+    UIColor *greenColor = [UIColor colorWithHexString:@"#7b1e61"];
+    CGContextSetStrokeColorWithColor(context, greenColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX , centerPtY - radiusY * 410 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX , centerPtY + radiusY * 500 / 500.0f);
+    CGContextStrokePath(context);
+
+    UIColor *blueColor = [UIColor colorWithHexString:@"#395cc8"];
+    CGContextSetStrokeColorWithColor(context, blueColor.CGColor);
+    CGContextMoveToPoint(context, centerPtX + radiusX * 140 / 500.0f, centerPtY - radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 230 / 500.0f, centerPtY - radiusY * 40 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 230 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextStrokePath(context);
+    
+    CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextMoveToPoint(context, centerPtX - radiusX * 230 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 230 / 500.0f, centerPtY + radiusY * 500 / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX - radiusX * 230 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX - radiusX * 230 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextMoveToPoint(context, centerPtX + radiusX * 230 / 500.0f, centerPtY + radiusY * (500 + 10) / 500.0f);
+    CGContextAddLineToPoint(context, centerPtX + radiusX * 230 / 500.0f, centerPtY + radiusY * (500 - 10) / 500.0f);
+    
+    CGContextStrokePath(context);
+    
 }
 
 - (void)drawShape:(CGContextRef)context withShape:(Shape *)aShape
@@ -528,7 +869,29 @@
             [self drawRectangle:context withRectangle:(Rectangle *)aShape];
             break;
         case DRAWING_TOOL_BLAST:
-            [self drawBlast:context withBlast:(Blast *)aShape];
+            [self drawBlast:context withBlast:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_AUTOLINE:
+            [self drawAutoline:context withAutoLine:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_BLANCEBOX:
+            [self drawBalanceBox:context withBalanceBox:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_CENTERBALANCELINE:
+            [self drawCenterBalanceLine:context withCenterBalanceLine:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_CENTERALIGNMENTLINE:
+            [self drawCenterAlignmentLine:context withCenterAlignmentLine:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_CROSSHAIR:
+            [self drawCenterCrosshair:context withCrossHair:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_SKELTON:
+            [self drawSkelton:context withSkelton:(CustomShape *)aShape];
+            break;
+        case DRAWING_TOOL_SPINEANGLE:
+            [self drawSpineAngle:context withSpineAngle:(CustomShape *)aShape];
+            break;
         default:
             break;
     }
@@ -559,8 +922,15 @@
             [self drawRectangleCtrl:context withRectangle:(Rectangle *)aShape];
             break;
         case DRAWING_TOOL_BLAST:
-            [self drawBlastCtrl:context withBlast:(Blast *)aShape];
+        case DRAWING_TOOL_AUTOLINE:
+        case DRAWING_TOOL_BLANCEBOX:
+        case DRAWING_TOOL_CENTERALIGNMENTLINE:
+        case DRAWING_TOOL_CENTERBALANCELINE:
+        case DRAWING_TOOL_CROSSHAIR:
+        case DRAWING_TOOL_SKELTON:
+        case DRAWING_TOOL_SPINEANGLE:
         default:
+            [self drawCustomShapeCtrl:context withCustomShape:(CustomShape *)aShape];
             break;
     }
 }
@@ -785,12 +1155,11 @@
                 }
             }
                 break;
-            case DRAWING_TOOL_BLAST:
+            default:
             {
-                Blast *aBlast = (Blast *)mCandShape;
-                
-                CGPoint centerPt = [self absoluteCoordinate:aBlast.centerPt];
-                CGPoint bottomPt = [self absoluteCoordinate:CGPointMake(aBlast.centerPt.x, aBlast.centerPt.y + aBlast.radius)];
+                CustomShape *aShape = (CustomShape *)mCandShape;
+                CGPoint centerPt = [self absoluteCoordinate:aShape.centerPt];
+                CGPoint bottomPt = [self absoluteCoordinate:CGPointMake(aShape.centerPt.x, aShape.centerPt.y + aShape.radius)];
                 
                 if (isEqualPoint(bottomPt, mFirstPt, kCtrlPtRadius + kLineWidth))
                 {
@@ -798,10 +1167,7 @@
                 } else if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
                     mEditMode = EDIT_MODE_CENTER_PT;
                 }
-
             }
-                break;
-            default:
                 break;
         }
     }
@@ -867,18 +1233,13 @@
                 [(Rectangle *)mTempShape setEndPt:endPt];
             }
                 break;
-
-            case DRAWING_TOOL_BLAST:
-            {
-                mTempShape = [[Blast alloc] init];
-                CGPoint centerPt = [self relativeCoordinate:mFirstPt];
-                [(Blast *)mTempShape setCenterPt:centerPt];
-                //[(Blast *)mTempShape setRadius:[self changeRelative:100]];
-
-            }
-                break;
-                
             default:
+            {
+                mTempShape = [[CustomShape alloc] init];
+                mTempShape.shapeType = mShapeType;
+                CGPoint centerPt = [self relativeCoordinate:mFirstPt];
+                [(CustomShape *)mTempShape setCenterPt:centerPt];
+            }
                 break;
         }
         
@@ -945,16 +1306,8 @@
                     
                 }
                     break;
-                case DRAWING_TOOL_BLAST:
-                {
-                    //CGFloat distance = distanceBetween2Points(mFirstPt, mLastPt);
-                    //[(Blast *)mTempShape setRadius:[self changeRelative:distance]];
-                    
-                    [(Blast *)mTempShape setRadius:[self changeRelative:100]];
-
-                }
-                    break;
                 default:
+                    [(CustomShape *)mTempShape setRadius:[self changeRelative:100]];
                     break;
             }
         }
@@ -1049,21 +1402,19 @@
             }
                 break;
             
-            case DRAWING_TOOL_BLAST:
+            default:
             {
-                Blast *aBlast = (Blast *)mCandShape;
+                CustomShape *aShape = (CustomShape *)mCandShape;
                 if (mEditMode == EDIT_MODE_CENTER_PT)
                 {
-                    [aBlast setCenterPt:[self relativeCoordinate:mLastPt]];
+                    [aShape setCenterPt:[self relativeCoordinate:mLastPt]];
                     
                 } else {
-                    CGFloat distance = distanceBetween2Points(aBlast.centerPt, [self relativeCoordinate:mLastPt]);
-                    [aBlast setRadius:distance];
+                    CGFloat distance = distanceBetween2Points(aShape.centerPt, [self relativeCoordinate:mLastPt]);
+                    [aShape setRadius:distance];
                     
                 }
             }
-                break;
-            default:
                 break;
         }
     }
@@ -1142,15 +1493,11 @@
 
                     }
                         break;
-                    case DRAWING_TOOL_BLAST:
-                    {
-                        //CGFloat distance = distanceBetween2Points(mFirstPt, mLastPt);
-                        //[(Blast *)mTempShape setRadius:[self changeRelative:distance]];
-                        [(Blast *)mTempShape setCenterPt:[self relativeCoordinate:mLastPt]];
-                        
-                    }
-                        break;
                     default:
+                    {
+                        [(CustomShape *)mTempShape setCenterPt:[self relativeCoordinate:mLastPt]];
+
+                    }
                         break;
                 }
                 
