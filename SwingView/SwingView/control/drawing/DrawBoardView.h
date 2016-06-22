@@ -44,6 +44,9 @@
 
 @property(nonatomic, retain) id<DrawBoardViewDeleate> delegate;
 
+@property (nonatomic ,strong)  Shape *mCandShape;
+
+
 - (void)setupCtrlLayer:(id)delegate;
 - (void)drawShapesOnBoard:(CGContextRef)context;
 - (void)drawShapeCtrlsOnBoard:(CGContextRef)context;
@@ -56,6 +59,7 @@
 - (void)addShape:(Shape *)aShape;
 
 - (void)toggleDeletable;
+- (void)toggleCandiPoint;
 - (BOOL)isDeletable;
 - (void)clearBoard;
 - (void)finishDraw;

@@ -20,6 +20,8 @@
 
 @implementation DrawBoardView
 
+@synthesize mCandShape;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -56,6 +58,8 @@
     mFirstPt = mLastPt = CGPointZero;
     mCandShape = mTempShape = nil;
     
+    [self setMCandShape:nil];
+        
     mShapeType = 0;
     mEditMode = EDIT_MODE_NONE;
     mTempIsCandi = NO;
@@ -140,11 +144,23 @@
             CGFloat centerPtY = [self changeAbsolute:aCircle.centerPt.y];
             CGFloat radius = [self changeAbsolute:aCircle.radius];
             
-            CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
-            CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
+            if (aCircle.shapeEditMode == EDIT_MODE_CENTER_PT)
+            {
+                CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else if (aCircle.shapeEditMode == EDIT_MODE_END_PT){
+                CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else
+            {
+                CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+                
+                CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
         }
     }
 }
@@ -180,11 +196,24 @@
             CGFloat endPtX = [self changeAbsolute:aLine.endPt.x];
             CGFloat endPtY = [self changeAbsolute:aLine.endPt.y];
             
-            CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
-            CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
+            if (aLine.shapeEditMode == EDIT_MODE_START_PT)
+            {
+                CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else if (aLine.shapeEditMode == EDIT_MODE_END_PT)
+            {
+                CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else
+            {
+                CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+                
+                CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
         }
     }
 }
@@ -241,15 +270,32 @@
             CGFloat centerPtX = [self changeAbsolute:aRectangle.centerPt.x];
             CGFloat centerPtY = [self changeAbsolute:aRectangle.centerPt.y];
             
-            CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
-            CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
-            CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
+            if (aRectangle.shapeEditMode == EDIT_MODE_CENTER_PT)
+            {
+                CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else if (aRectangle.shapeEditMode == EDIT_MODE_START_PT)
+            {
+                CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else if (aRectangle.shapeEditMode == EDIT_MODE_END_PT)
+            {
+                CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else
+            {
+                CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+                
+                CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+                
+                CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
         }
     }
 }
@@ -322,14 +368,32 @@
             CGFloat centerPtX = [self changeAbsolute:aAngle.centerPt.x];
             CGFloat centerPtY = [self changeAbsolute:aAngle.centerPt.y];
 
-            CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
-            CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
-            
-            CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-            CGContextDrawPath(context, kCGPathFillStroke);
+            if (aAngle.shapeEditMode == EDIT_MODE_CENTER_PT)
+            {
+                CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else if (aAngle.shapeEditMode == EDIT_MODE_START_PT)
+            {
+                CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else if (aAngle.shapeEditMode == EDIT_MODE_END_PT)
+            {
+                CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
+            else
+            {
+                CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+                
+                CGContextAddArc(context, startPtX, startPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+                
+                CGContextAddArc(context, endPtX, endPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+                CGContextDrawPath(context, kCGPathFillStroke);
+            }
         }
     }
 }
@@ -495,11 +559,24 @@
         CGFloat centerPtY = [self changeAbsolute:aShape.centerPt.y];
         CGFloat radius = [self changeAbsolute:aShape.radius];
         
-        CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-        CGContextDrawPath(context, kCGPathFillStroke);
-        
-        CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
-        CGContextDrawPath(context, kCGPathFillStroke);
+        if (aShape.shapeEditMode == EDIT_MODE_CENTER_PT)
+        {
+            CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+            CGContextDrawPath(context, kCGPathFillStroke);
+        }
+        else if (aShape.shapeEditMode == EDIT_MODE_END_PT)
+        {
+            CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+            CGContextDrawPath(context, kCGPathFillStroke);
+        }
+        else
+        {
+            CGContextAddArc(context, centerPtX, centerPtY, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+            CGContextDrawPath(context, kCGPathFillStroke);
+            
+            CGContextAddArc(context, centerPtX, centerPtY + radius, kCtrlPtRadius, 0.0f, M_PI * 2.0f, 0);
+            CGContextDrawPath(context, kCGPathFillStroke);
+        }
     }
 }
 
@@ -1001,10 +1078,11 @@
         {
             mNearestShape.isCandi = YES;
             mCandShape = mNearestShape;
-            
+            [self setMCandShape:mNearestShape];
+
             [mShapeList removeObject:mNearestShape];
             
-            mShapeType = mCandShape.shapeType;
+            //mShapeType = mCandShape.shapeType;
             
             
             NSLog(@"%@", NSStringFromClass([mCandShape class]));
@@ -1079,10 +1157,10 @@
                 CGPoint centerPt = [self absoluteCoordinate:aCircle.centerPt];
                 CGPoint bottomPt = [self absoluteCoordinate:CGPointMake(aCircle.centerPt.x, aCircle.centerPt.y + aCircle.radius)];
                 
-                if (isEqualPoint(bottomPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                if (isEqualPoint(bottomPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aCircle.shapeEditMode == EDIT_MODE_END_PT)
                 {
                     mEditMode = EDIT_MODE_END_PT;
-                } else if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
+                } else if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aCircle.shapeEditMode == EDIT_MODE_CENTER_PT) {
                     mEditMode = EDIT_MODE_CENTER_PT;
                 }
             }
@@ -1093,11 +1171,11 @@
                 Line *aLine = (Line *)mCandShape;
                 CGPoint endPt = [self absoluteCoordinate:aLine.endPt];
                 CGPoint startPt = [self absoluteCoordinate:aLine.startPt];
-
-                if (isEqualPoint(endPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                
+                if (isEqualPoint(endPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aLine.shapeEditMode == EDIT_MODE_END_PT)
                 {
                     mEditMode = EDIT_MODE_END_PT;
-                } else if (isEqualPoint(startPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
+                } else if (isEqualPoint(startPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aLine.shapeEditMode == EDIT_MODE_START_PT) {
                     mEditMode = EDIT_MODE_START_PT;
                 }
             }
@@ -1123,12 +1201,12 @@
                 CGPoint startPt = [self absoluteCoordinate:aAngle.startPt];
                 CGPoint centerPt = [self absoluteCoordinate:aAngle.centerPt];
 
-                if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aAngle.shapeEditMode == EDIT_MODE_CENTER_PT)
                 {
                     mEditMode = EDIT_MODE_CENTER_PT;
-                } else if (isEqualPoint(endPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
+                } else if (isEqualPoint(endPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aAngle.shapeEditMode == EDIT_MODE_END_PT) {
                     mEditMode = EDIT_MODE_END_PT;
-                } else if (isEqualPoint(startPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
+                } else if (isEqualPoint(startPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aAngle.shapeEditMode == EDIT_MODE_START_PT) {
                     mEditMode = EDIT_MODE_START_PT;
                 }
             }
@@ -1141,19 +1219,20 @@
                 CGPoint startPt = [self absoluteCoordinate:aRectangle.startPt];
                 CGPoint centerPt = [self absoluteCoordinate:aRectangle.centerPt];
 
-                if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aRectangle.shapeEditMode == EDIT_MODE_CENTER_PT)
                 {
                     mEditMode = EDIT_MODE_CENTER_PT;
                 }
-                else if (isEqualPoint(endPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                else if (isEqualPoint(endPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aRectangle.shapeEditMode == EDIT_MODE_END_PT)
                 {
                     mEditMode = EDIT_MODE_END_PT;
                 }
-                else if (isEqualPoint(startPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                else if (isEqualPoint(startPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aRectangle.shapeEditMode == EDIT_MODE_START_PT)
                 {
                     mEditMode = EDIT_MODE_START_PT;
                 }
             }
+            case DRAWING_TOOL_FREEDRAW:
                 break;
             default:
             {
@@ -1161,10 +1240,10 @@
                 CGPoint centerPt = [self absoluteCoordinate:aShape.centerPt];
                 CGPoint bottomPt = [self absoluteCoordinate:CGPointMake(aShape.centerPt.x, aShape.centerPt.y + aShape.radius)];
                 
-                if (isEqualPoint(bottomPt, mFirstPt, kCtrlPtRadius + kLineWidth))
+                if (isEqualPoint(bottomPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aShape.shapeEditMode == EDIT_MODE_END_PT)
                 {
                     mEditMode = EDIT_MODE_END_PT;
-                } else if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth)) {
+                } else if (isEqualPoint(centerPt, mFirstPt, kCtrlPtRadius + kLineWidth) && aShape.shapeEditMode == EDIT_MODE_CENTER_PT) {
                     mEditMode = EDIT_MODE_CENTER_PT;
                 }
             }
@@ -1172,7 +1251,7 @@
         }
     }
     
-    if (mEditMode == EDIT_MODE_NONE)
+    if (mEditMode == EDIT_MODE_NONE && mCandShape == nil)
     {
         switch (mShapeType) {
             case DRAWING_TOOL_CIRCLE:
@@ -1189,6 +1268,7 @@
 
                 [(Line *)mTempShape setStartPt:firstPt];
                 [(Line *)mTempShape setEndPt:firstPt];
+            
             }
                 break;
             case DRAWING_TOOL_DASH:
@@ -1233,6 +1313,7 @@
                 [(Rectangle *)mTempShape setEndPt:endPt];
             }
                 break;
+            
             default:
             {
                 mTempShape = [[CustomShape alloc] init];
@@ -1262,7 +1343,8 @@
         if (mCandShape && !isEqualPoint(mFirstPt, mLastPt, kCtrlPtRadius + kLineWidth))
         {
             mTempIsCandi = YES;//(mTempShape.shapeType != DRAWING_TOOL_FREEDRAW) ? YES : NO;
-            mCandShape = nil;
+ //           mCandShape = nil;
+ //           [self setMCandShape:nil];
         }
         
         if (mTempShape) {
@@ -1401,7 +1483,8 @@
                 }
             }
                 break;
-            
+            case DRAWING_TOOL_FREEDRAW:
+                break;
             default:
             {
                 CustomShape *aShape = (CustomShape *)mCandShape;
@@ -1449,7 +1532,8 @@
             [mShapeList addObject:mCandShape];
             [_delegate finishDraw:self];
             mCandShape = nil;
-            
+            [self setMCandShape:nil];
+
         } else if (mTempShape) {
             if (isEqualPoint(mFirstPt, mLastPt, 1.0f))
             {
@@ -1504,6 +1588,8 @@
                 if (/* DISABLES CODE */ (YES) || mTempIsCandi)
                 {
                     mCandShape = mTempShape;
+                    [self setMCandShape:mTempShape];
+
                 } else {
                     mTempShape.isCandi = NO;
                     [mShapeList addObject:mTempShape];
@@ -1546,6 +1632,8 @@
 {
     [mShapeList removeAllObjects];
     mCandShape = nil;
+    [self setMCandShape:nil];
+
     mTempShape = nil;
     
     mIsDeletable = NO;
@@ -1562,11 +1650,70 @@
             mCandShape.isCandi = NO;
             [mShapeList addObject:mCandShape];
             mCandShape = nil;
+            [self setMCandShape:nil];
+
         }
     } else {
         ;
     }
 
+    [self setNeedsDisplay];
+}
+
+- (void)toggleCandiPoint
+{
+    if (mCandShape) {
+
+        switch (mCandShape.shapeType) {
+            case DRAWING_TOOL_LINE:
+            {
+                if (mCandShape.shapeEditMode == EDIT_MODE_END_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_START_PT;
+                else
+                    mCandShape.shapeEditMode = EDIT_MODE_END_PT;
+            }
+                break;
+            case DRAWING_TOOL_CIRCLE:
+            {
+                if (mCandShape.shapeEditMode == EDIT_MODE_END_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_CENTER_PT;
+                else
+                    mCandShape.shapeEditMode = EDIT_MODE_END_PT;
+            }
+                break;
+            case DRAWING_TOOL_RECTANGLE:
+            {
+                if (mCandShape.shapeEditMode == EDIT_MODE_CENTER_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_END_PT;
+                else if (mCandShape.shapeEditMode == EDIT_MODE_END_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_START_PT;
+                else
+                    mCandShape.shapeEditMode = EDIT_MODE_CENTER_PT;
+            }
+                break;
+            case DRAWING_TOOL_ANGLE:
+            {
+                if (mCandShape.shapeEditMode == EDIT_MODE_CENTER_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_END_PT;
+                else if (mCandShape.shapeEditMode == EDIT_MODE_END_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_START_PT;
+                else
+                    mCandShape.shapeEditMode = EDIT_MODE_CENTER_PT;
+            }
+                break;
+            case DRAWING_TOOL_DASH:
+                break;
+            default:
+            {
+                if (mCandShape.shapeEditMode == EDIT_MODE_END_PT)
+                    mCandShape.shapeEditMode = EDIT_MODE_CENTER_PT;
+                else
+                    mCandShape.shapeEditMode = EDIT_MODE_END_PT;
+            }
+                break;
+        }
+    }
+    
     [self setNeedsDisplay];
 }
 
@@ -1576,6 +1723,8 @@
         mCandShape.isCandi = NO;
         [mShapeList addObject:mCandShape];
         mCandShape = nil;
+        [self setMCandShape:nil];
+
     }
     
     [self setNeedsDisplay];
@@ -1593,7 +1742,8 @@
         mCandShape.isCandi = NO;
         [mShapeList addObject:mCandShape];
         mCandShape = nil;
-        
+        [self setMCandShape:nil];
+
     }
     
     [self setNeedsDisplay];

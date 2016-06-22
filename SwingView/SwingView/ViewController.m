@@ -155,6 +155,9 @@
     [self disableButton:_undoBtn1];
     [self disableButton:_clearBtn1];
     
+    [self disableButton:_toggleBtn1];
+    [self disableButton:_toggleBtn2];
+    
     _drawView1.delegate = self;
     _drawView2.delegate = self;
     
@@ -217,6 +220,10 @@
     _enableDrawing = YES;
     [self addObserver:self forKeyPath:@"enableDrawing" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
     
+    [self.drawView1 addObserver:self forKeyPath:@"mCandShape" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+    
+    [self.drawView2 addObserver:self forKeyPath:@"mCandShape" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+    
     [_playerView1 setFileURL:[[NSBundle mainBundle] URLForResource: @"test" withExtension:@"mp4"] isAudio:NO];
     
     if ([_playerView1 ratioWidthtoHeight] < 1)
@@ -254,6 +261,19 @@
             _triangleImageView.hidden = YES;
             _drawView1.userInteractionEnabled = NO;
             _drawView2.userInteractionEnabled = NO;
+        }
+    }
+    else if ([keyPath isEqualToString:@"mCandShape"])
+    {
+        if ([_drawView1 mCandShape] == nil && [_drawView2 mCandShape] == nil)
+        {
+            [self disableButton:_toggleBtn1];
+            [self disableButton:_toggleBtn2];
+        }
+        else
+        {
+            [self enableButton:_toggleBtn1];
+            [self enableButton:_toggleBtn2];
         }
     }
 }
@@ -355,7 +375,7 @@
         
         if (orientation == UIDeviceOrientationPortrait)
         {
-            _reunHeight.constant = 72;
+            _reunHeight.constant = 108;
             _reunView.hidden = NO;
         }
     }
@@ -578,6 +598,13 @@
     
 }
 
+- (IBAction)onToggleCandi:(id)sender
+{
+    [_drawView1 toggleCandiPoint];
+    [_drawView2 toggleCandiPoint];
+
+}
+
 - (IBAction)onCompare:(id)sender
 {
     UIBarButtonItem *item = (UIBarButtonItem *)sender;
@@ -742,7 +769,6 @@
         _ratioHeight = [_subView1 autoConstrainAttribute:ALAttributeHeight toAttribute:ALAttributeHeight ofView:_subView1.superview withMultiplier:1.0f];
 
     }
-    
 }
 
 - (void)orientationChanged:(NSNotification *)notification{
@@ -769,7 +795,7 @@
         }
         else
         {
-            _reunHeight.constant = 71;
+            _reunHeight.constant = 108;
             _reunView.hidden = NO;
             
         }

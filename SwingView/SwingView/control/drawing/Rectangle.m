@@ -20,6 +20,8 @@
         self.startPt = CGPointZero;
         self.endPt = CGPointZero;
         
+        self.shapeEditMode = EDIT_MODE_CENTER_PT;
+
     }
     
     return self;

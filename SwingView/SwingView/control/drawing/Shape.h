@@ -56,6 +56,8 @@ typedef enum _tagEditMode
 @property(nonatomic) DRAWING_COLOR shapeColorType;
 @property(nonatomic, strong) UIColor *shapeColor;
 
+@property (nonatomic) EDIT_MODE shapeEditMode;
+
 - (float)distanceFromPt:(CGPoint)pt;
 - (BOOL)IsTappedDeleteCtrlPt:(CGPoint)pt;
 

@@ -145,15 +145,15 @@
     </objects>
     <resources>
         <image name="angle-red.png" width="120" height="120"/>
-        <image name="balancebox.png" width="67" height="120"/>
-        <image name="centeralignmentline.png" width="67" height="120"/>
-        <image name="centerbalanceline.png" width="65" height="120"/>
+        <image name="balancebox.png" width="120" height="120"/>
+        <image name="centeralignmentline.png" width="120" height="120"/>
+        <image name="centerbalanceline.png" width="120" height="120"/>
         <image name="circle-red.png" width="120" height="120"/>
         <image name="crosshair.png" width="120" height="120"/>
         <image name="freehand-red.png" width="120" height="120"/>
         <image name="line-red.png" width="120" height="120"/>
         <image name="rectangle-red.png" width="120" height="120"/>
-        <image name="skeleton.png" width="52" height="120"/>
-        <image name="spineangle.png" width="59" height="120"/>
+        <image name="skeleton.png" width="73" height="120"/>
+        <image name="spineangle.png" width="120" height="120"/>
     </resources>
 </document>

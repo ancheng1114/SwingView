@@ -73,6 +73,9 @@ typedef enum _tagPANAL_TYPE {
 @property (nonatomic ,assign) IBOutlet UIButton *removeBtn1;
 @property (nonatomic ,assign) IBOutlet UIButton *removeBtn2;
 
+@property (nonatomic ,assign) IBOutlet UIButton *toggleBtn1;
+@property (nonatomic ,assign) IBOutlet UIButton *toggleBtn2;
+
 @property (nonatomic ,assign) IBOutlet UIButton *playBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *motionBtn;
 @property (nonatomic ,assign) IBOutlet UIButton *recordButton;
@@ -101,6 +104,8 @@ typedef enum _tagPANAL_TYPE {
 
 - (IBAction)onPlay:(id)sender;
 - (IBAction)onSlowMotion:(id)sender;
+
+- (IBAction)onToggleCandi:(id)sender;
 
 - (IBAction)onCompare:(id)sender;
 - (IBAction)onChange:(id)sender;

@@ -18,6 +18,8 @@
         self.shapeType = DRAWING_TOOL_LINE;
         self.startPt = CGPointZero;
         self.endPt = CGPointZero;
+        
+        self.shapeEditMode = EDIT_MODE_END_PT;
     }
     
     return self;

@@ -18,6 +18,8 @@
         self.shapeType = DRAWING_TOOL_CIRCLE;
         self.centerPt = CGPointZero;
         self.radius = 0.0f;
+        
+        self.shapeEditMode = EDIT_MODE_CENTER_PT;
     }
     
     return self;
